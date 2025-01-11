@@ -1,0 +1,30 @@
+class Student:
+    def __init__(self, name):
+        self.name = name
+
+    def __eq__(self, other):
+        return self.name == other.name
+
+    def __lt__(self, other):
+        return self.name < other.name
+
+    def __ge__(self, other):
+        return self.name >= other.name
+
+    def __str__(self):
+        return self.name
+
+
+def main():
+    student1 = Student("Alice")
+    student2 = Student("Bob")
+    student3 = Student("Alice")
+
+    print(f"{student1} == {student2}: {student1 == student2}")
+    print(f"{student1} == {student3}: {student1 == student3}")
+    print(f"{student1} < {student2}: {student1 < student2}")
+    print(f"{student2} >= {student1}: {student2 >= student1}")
+
+
+if __name__ == "__main__":
+    main()

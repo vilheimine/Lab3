@@ -1,0 +1,32 @@
+import random
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+
+    def __lt__(self, other):
+        return self.name < other.name
+
+    def __str__(self):
+        return self.name
+
+
+def main():
+    students = [Student("Alice"), Student("Bob"), Student("Charlie"), Student("Diana")]
+    print("Original list:")
+    for student in students:
+        print(student)
+
+    random.shuffle(students)
+    print("\nShuffled list:")
+    for student in students:
+        print(student)
+
+    students.sort()
+    print("\nSorted list:")
+    for student in students:
+        print(student)
+
+
+if __name__ == "__main__":
+    main()

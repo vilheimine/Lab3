@@ -1,0 +1,33 @@
+class SavingsAccount:
+    def __init__(self, name, balance):
+        self.name = name
+        self.balance = balance
+
+    def __str__(self):
+        return f"{self.name}: ${self.balance:.2f}"
+
+
+class Bank:
+    def __init__(self):
+        self.accounts = []
+
+    def add_account(self, account):
+        self.accounts.append(account)
+
+    def __str__(self):
+        sorted_accounts = sorted(self.accounts, key=lambda acc: acc.name)
+        return "\n".join(str(account) for account in sorted_accounts)
+
+
+def main():
+    bank = Bank()
+    bank.add_account(SavingsAccount("Charlie", 3000))
+    bank.add_account(SavingsAccount("Alice", 5000))
+    bank.add_account(SavingsAccount("Bob", 4000))
+
+    print("Bank accounts sorted by name:")
+    print(bank)
+
+
+if __name__ == "__main__":
+    main()
